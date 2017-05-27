@@ -1,0 +1,33 @@
+
+// Tree View
+// -------------------
+
+// Used to explore and open files in the current project.
+// Overrides: atom/tree-view
+
+
+.tree-view-resizer {
+  border-right: 1px solid @base-border-color;
+}
+
+.tree-view {
+  color: @text-color;
+  background-image: linear-gradient( 30deg, darken(@base-background-color, 8%) 0%, @tab-bar-background-color 100%);
+
+  ol {
+    background-color: transparent;
+    margin-top: 10px;
+  }
+
+  .list-item.selected {
+    color: @text-color-selected;
+    line-height: 35px;
+  }
+}
+
+.atom-dock-resize-handle.left {
+  &.left,
+  &.right {
+    width: 0;
+  }
+}

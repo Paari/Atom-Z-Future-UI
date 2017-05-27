@@ -1,0 +1,76 @@
+
+// Tabs
+// -------------------
+
+// Displays selectable tabs above the editor.
+// Overrides: atom/tabs
+
+.vertical {
+  .tab-bar {
+    box-shadow: @deep-shadow;
+    position: relative;
+    z-index: 5;
+  }
+}
+
+.tab-bar {
+  background-color: @tab-bar-background-color;
+  padding: 15px 10px;
+
+  .tab {
+    color: @text-color-selected;
+    height: @tab-height;
+    line-height: @tab-height;
+    font-size: @font-size;
+    border-right: 1px solid @tab-border-color;
+    background-color: @tab-background-color;
+    opacity: .8;
+    border-radius: 4px;
+    margin-right: 5px;
+    transition: .3s ease-in-out;
+    &.active {
+      color: @text-color-selected;
+      background-color: @tab-background-color-active;
+      opacity: 1;
+      box-shadow: @element-shadow;
+      z-index: 5;
+      position: relative;
+      margin-left: 10px;
+      margin-right: 15px;
+      font-size: @font-size + 2px;
+    }
+
+
+    // Modified Icon (the blue circle) -------------------
+    &.modified:not(:hover) .close-icon {
+      top: 50%;
+      right: @component-padding + 4px; // 4px -> half of icon size
+      margin-top: -3px;
+      border-color: @text-color-error;
+    }
+    &.modified:hover .close-icon {
+      color: currentColor;
+    }
+
+
+    // Close Icon (the X) -------------------
+    .close-icon:hover {
+      color: @text-color-selected;
+    }
+    &.active .close-icon:hover {
+      color: @text-color;
+    }
+
+
+    // Dragging -------------------
+    // Styles get applied while dragging a tab
+    &.is-dragging {
+      background: darken(@tab-background-color, 10%);
+      border-color: transparent;
+      opacity: .5;
+      & .close-icon {
+        visibility: hidden;
+      }
+    }
+  }
+}
